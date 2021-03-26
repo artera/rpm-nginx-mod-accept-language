@@ -42,7 +42,7 @@ This module parses the Accept-Language header and gives the most suitable locale
 
 %build
 cd %{_builddir}/nginx-%{_nginxver}
-./configure %(nginx -V 2>&1 | grep 'configure arguments' | sed -r 's@^[^:]+: @@') --add-dynamic-module=../nginx_accept_language_module-%{version}
+./configure --with-file-aio --with-ipv6 --with-stream %(nginx -V 2>&1 | grep -Po -- '--with-http[^ ]+' | xargs echo) --with-cc-opt='-std=c99 -Wno-error=unused-variable %{optflags}' --add-dynamic-module=../nginx_accept_language_module-%{version}
 make modules
 
 %install
