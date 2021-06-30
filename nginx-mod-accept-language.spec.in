@@ -1,7 +1,7 @@
 Summary: Parses the Accept-Language field in HTTP headers
 Name: nginx-mod-accept-language
 Version: 1.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Vendor: Artera
 URL: https://github.com/mtorromeo/nginx_accept_language_module
 
@@ -42,7 +42,7 @@ This module parses the Accept-Language header and gives the most suitable locale
 
 %build
 cd %{_builddir}/nginx-%{_nginxver}
-./configure --with-file-aio --with-ipv6 --with-stream %(nginx -V 2>&1 | grep -Po -- '--with-http[^ ]+' | xargs echo) --with-cc-opt='-std=c99 -Wno-error=unused-variable %{optflags}' --add-dynamic-module=../nginx_accept_language_module-%{version}
+./configure --with-file-aio --with-ipv6 --with-stream --with-compat %(nginx -V 2>&1 | grep -Po -- '--with-http[^ ]+' | xargs echo) --with-cc-opt='-std=c99 -Wno-error=unused-variable %{optflags}' --add-dynamic-module=../nginx_accept_language_module-%{version}
 make modules
 
 %install
