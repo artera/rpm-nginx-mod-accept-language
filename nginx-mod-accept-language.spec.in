@@ -1,6 +1,6 @@
 Summary: Parses the Accept-Language field in HTTP headers
 Name: nginx-mod-accept-language
-Version: 1.1.0
+Version: 1.1.1
 Release: 1%{?dist}
 Vendor: Artera
 URL: https://github.com/mtorromeo/nginx_accept_language_module
