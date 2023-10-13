@@ -41,7 +41,6 @@ This module parses the Accept-Language header and gives the most suitable locale
 
 %build
 cd %{_builddir}/nginx-%{_nginxver}
-export CFLAGS="$CFLAGS -Wno-error=cast-function-type"
 ./configure --with-compat --add-dynamic-module=../nginx_accept_language_module-%{version}
 make modules
 
